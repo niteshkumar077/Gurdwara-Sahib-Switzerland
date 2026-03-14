@@ -52,6 +52,7 @@ export default function Home() {
             className="object-cover object-top"
             priority
             fetchPriority="high"
+            unoptimized
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/20 to-background/40 flex items-center justify-center"></div>
         </div>
@@ -193,7 +194,7 @@ export default function Home() {
       <section className="relative py-24 overflow-hidden border-y border-primary/10 bg-foreground/[0.03] dark:bg-[#000814]">
         {/* Subtle Silk Background Texture */}
         <div className="absolute inset-0 z-0 opacity-[0.02] pointer-events-none"
-          style={{ backgroundImage: "url('/assets/hero background - front gurdwara-sahib-switzerland (1).webp')", backgroundSize: "cover", backgroundPosition: "center" }} />
+          style={{ backgroundImage: "url('/assets/hero-front.webp')", backgroundSize: "cover", backgroundPosition: "center" }} />
 
         <div className="max-w-[1800px] mx-auto px-6 lg:px-20 relative z-10">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16">
