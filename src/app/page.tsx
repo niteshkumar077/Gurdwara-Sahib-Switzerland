@@ -59,7 +59,7 @@ export default function Home() {
           <m.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, staggerChildren: 0.05, delayChildren: 0 }}
+            transition={{ duration: 0.8, staggerChildren: 0.2, delayChildren: 0.1 }}
             style={{ willChange: "opacity" }}
             className="space-y-6 flex flex-col items-center"
           >
@@ -67,16 +67,16 @@ export default function Home() {
             <m.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
+              transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
             >
                <span className="text-sm md:text-base tracking-[0.3em] uppercase text-white/80 font-light">{t("home.welcome")}</span>
             </m.div>
 
-            {/* Majestic Title - renders visible immediately for LCP, animates in via scale+blur */}
+            {/* Majestic Title - slow cinematic reveal */}
             <m.h1
-              initial={{ opacity: 1, scale: 0.96, filter: "blur(8px)" }}
-              animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
-              transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+              initial={{ opacity: 1, scale: 0.93, y: 30, filter: "blur(12px)" }}
+              animate={{ opacity: 1, scale: 1, y: 0, filter: "blur(0px)" }}
+              transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
               style={{ willChange: "transform, filter" }}
               className="text-4xl md:text-5xl lg:text-7xl font-playfair font-black leading-tight drop-shadow-2xl gold-gradient-text tracking-widest uppercase py-2"
             >
@@ -85,9 +85,9 @@ export default function Home() {
 
             {/* Profound Subtitle */}
             <m.p
-              initial={{ opacity: 0, y: 15 }}
+              initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.3, delay: 0, ease: [0.22, 1, 0.36, 1] }}
+              transition={{ duration: 1.0, ease: [0.22, 1, 0.36, 1] }}
               style={{ willChange: "opacity, transform" }}
               className="text-lg md:text-2xl font-light max-w-2xl mx-auto text-white/90 font-playfair italic px-4 mt-2"
             >
@@ -97,11 +97,11 @@ export default function Home() {
             {/* CTA Buttons */}
             <div className="flex flex-row items-center justify-center gap-6 pt-8 flex-wrap">
               <m.div
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.98 }}
-                transition={{ duration: 0.6, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
               >
                 <Link
                   href="/about"
