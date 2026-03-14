@@ -67,8 +67,8 @@ export default function Navbar() {
   const showBackground = !isHomePage || isScrolled;
 
   // Premium High-End Navigation Styles
-  const navContainerStyles = isScrolled 
-    ? "top-4 px-4 sm:px-6" 
+  const navContainerStyles = isScrolled
+    ? "top-4 px-4 sm:px-6"
     : isHomePage ? "top-0 px-0" : "top-2 px-4";
 
   const navInnerStyles = showBackground
@@ -77,13 +77,13 @@ export default function Navbar() {
 
   return (
     <>
-      <nav 
+      <nav
         className={`fixed inset-x-0 z-50 transition-[top,padding,background-color] duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] ${navContainerStyles}`}
         aria-label="Primary Navigation"
       >
         <div className={`transition-[background-color,border-color,box-shadow,backdrop-filter,padding,max-width,border-radius] duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] ${navInnerStyles}`}>
           <div className="px-4 md:px-6 lg:px-10 flex justify-between items-center gap-4 lg:gap-8">
-            
+
             {/* Logo Section - Majestic Positioning */}
             <a href="/" className="flex items-center gap-2 md:gap-3 lg:gap-4 group">
               <div className="relative w-12 h-12 md:w-10 md:h-10 lg:w-16 lg:h-16 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3">
@@ -117,11 +117,10 @@ export default function Navbar() {
                     <Link
                       key={link.name}
                       href={link.href}
-                      className={`relative font-inter text-[10px] lg:text-[13px] font-bold uppercase tracking-wider lg:tracking-[0.1em] transition-all duration-700 hover:text-primary ${
-                        isActive 
-                          ? (!showWhiteText ? "text-primary" : "text-white") 
+                      className={`relative font-inter text-[10px] lg:text-[13px] font-bold uppercase tracking-wider lg:tracking-[0.1em] transition-all duration-700 hover:text-primary ${isActive
+                          ? (!showWhiteText ? "text-primary" : "text-white")
                           : (!showWhiteText ? "text-foreground/80" : "text-white/80 hover:text-white")
-                      }`}
+                        }`}
                     >
                       {link.name}
                       <AnimatePresence>
@@ -146,27 +145,25 @@ export default function Navbar() {
               <div className="flex items-center gap-1 lg:gap-4 pl-3 lg:pl-6 xl:pl-10 border-l border-foreground/10">
                 <button
                   onClick={toggleLanguage}
-                  className={`group flex items-center gap-2.5 px-4 py-2 rounded-full text-xs font-black transition-all border border-transparent hover:border-primary/20 ${
-                    !showWhiteText ? "text-foreground hover:bg-primary/10" : "text-white hover:bg-white/10"
-                  }`}
+                  className={`group flex items-center gap-2.5 px-4 py-2 rounded-full text-xs font-black transition-all border border-transparent hover:border-primary/20 ${!showWhiteText ? "text-foreground hover:bg-primary/10" : "text-white hover:bg-white/10"
+                    }`}
                   aria-label={`Switch language from ${lang}`}
                   title={`Switch language from ${lang}`}
                 >
                   <Globe size={16} className={`${!showWhiteText ? "text-primary" : "text-white"} group-hover:rotate-12 transition-transform`} aria-hidden="true" />
                   <span className="tracking-widest">{lang}</span>
                 </button>
-                
+
                 {mounted && (
                   <button
                     onClick={toggleTheme}
-                    className={`p-2.5 rounded-full transition-all border border-transparent ${
-                      !showWhiteText 
-                        ? "text-foreground hover:bg-foreground/5 bg-foreground/5 md:bg-transparent hover:border-foreground/10" 
+                    className={`p-2.5 rounded-full transition-all border border-transparent ${!showWhiteText
+                        ? "text-foreground hover:bg-foreground/5 bg-foreground/5 md:bg-transparent hover:border-foreground/10"
                         : "text-white hover:bg-white/10 bg-white/5 md:bg-transparent hover:border-white/20"
-                    }`}
+                      }`}
                     aria-label="Toggle Theme"
                   >
-                    {theme === "dark" ? <Sun size={18} className={!showWhiteText ? "text-primary" : "text-white"}/> : <Moon size={18} className={!showWhiteText ? "text-primary" : "text-white"}/>}
+                    {theme === "dark" ? <Sun size={18} className={!showWhiteText ? "text-primary" : "text-white"} /> : <Moon size={18} className={!showWhiteText ? "text-primary" : "text-white"} />}
                   </button>
                 )}
               </div>
@@ -177,19 +174,17 @@ export default function Navbar() {
               {mounted && (
                 <button
                   onClick={toggleTheme}
-                  className={`p-3 rounded-2xl transition-colors ${
-                    !showWhiteText ? "text-foreground bg-foreground/5 hover:bg-foreground/10" : "text-white bg-white/10 hover:bg-white/20"
-                  }`}
+                  className={`p-3 rounded-2xl transition-colors ${!showWhiteText ? "text-foreground bg-foreground/5 hover:bg-foreground/10" : "text-white bg-white/10 hover:bg-white/20"
+                    }`}
                   aria-label="Toggle Theme"
                 >
-                  {theme === "dark" ? <Sun size={20} className={!showWhiteText ? "text-primary" : "text-white"}/> : <Moon size={20} className={!showWhiteText ? "text-primary" : "text-white"}/>}
+                  {theme === "dark" ? <Sun size={20} className={!showWhiteText ? "text-primary" : "text-white"} /> : <Moon size={20} className={!showWhiteText ? "text-primary" : "text-white"} />}
                 </button>
               )}
               <button
                 onClick={() => setIsMobileMenuOpen(true)}
-                className={`p-3 rounded-2xl transition-all active:scale-90 ${
-                  !showWhiteText ? "text-foreground bg-primary/10 hover:bg-primary/20" : "text-white bg-white/20 hover:bg-white/30"
-                }`}
+                className={`p-3 rounded-2xl transition-all active:scale-90 ${!showWhiteText ? "text-foreground bg-primary/10 hover:bg-primary/20" : "text-white bg-white/20 hover:bg-white/30"
+                  }`}
                 aria-label="Open Menu"
               >
                 <Menu size={20} className={!showWhiteText ? "text-primary" : "text-white"} />
@@ -222,19 +217,19 @@ export default function Navbar() {
               {/* Mobile Header - Compact & Clean */}
               <div className="p-6 flex items-center justify-between border-b border-primary/5">
                 <div className="flex items-center gap-3">
-                   <div className="relative w-10 h-10">
-                    <Image 
-                      src="/assets/gurdwara sahib switzerland logo.webp" 
-                      alt="Gurdwara Logo" 
-                      fill 
+                  <div className="relative w-10 h-10">
+                    <Image
+                      src="/assets/gurdwara sahib switzerland logo.webp"
+                      alt="Gurdwara Logo"
+                      fill
                       sizes="40px"
-                      className="object-contain" 
+                      className="object-contain"
                     />
-                   </div>
-                   <div className="flex flex-col">
+                  </div>
+                  <div className="flex flex-col">
                     <span className="font-playfair font-black text-foreground text-sm tracking-tight">{t("home.title").split(" ").slice(0, 2).join(" ")}</span>
                     <span className="text-[8px] tracking-[0.3em] text-primary font-bold uppercase" aria-hidden="true">{t("home.title").split(" ").slice(2).join(" ")}</span>
-                   </div>
+                  </div>
                 </div>
                 <button
                   onClick={() => setIsMobileMenuOpen(false)}
@@ -259,12 +254,12 @@ export default function Navbar() {
                     >
                       <Link
                         href={link.href}
+                        prefetch={link.href === "/schedule" ? false : undefined}
                         onClick={() => setIsMobileMenuOpen(false)}
-                        className={`flex items-center justify-between px-6 py-4 rounded-2xl w-full transition-all duration-300 font-inter text-base font-bold tracking-wide border ${
-                          isActive 
-                            ? "bg-primary text-background border-transparent shadow-md shadow-primary/20" 
+                        className={`flex items-center justify-between px-6 py-4 rounded-2xl w-full transition-all duration-300 font-inter text-base font-bold tracking-wide border ${isActive
+                            ? "bg-primary text-background border-transparent shadow-md shadow-primary/20"
                             : "bg-primary/5 text-foreground/80 border-transparent hover:bg-primary/10 hover:border-primary/20"
-                        }`}
+                          }`}
                       >
                         <div className="flex items-center gap-4">
                           <link.icon size={20} className={isActive ? "text-background" : "text-primary"} />
@@ -290,11 +285,10 @@ export default function Navbar() {
                           <button
                             key={l}
                             onClick={() => setLang(l)}
-                            className={`py-3 rounded-xl font-bold text-xs transition-all border ${
-                              isCurrent 
-                                ? "bg-primary/10 text-primary border-primary/30" 
+                            className={`py-3 rounded-xl font-bold text-xs transition-all border ${isCurrent
+                                ? "bg-primary/10 text-primary border-primary/30"
                                 : "bg-background text-foreground/40 border-primary/5 hover:border-primary/20"
-                            }`}
+                              }`}
                           >
                             {l}
                           </button>
@@ -302,7 +296,7 @@ export default function Navbar() {
                       })}
                     </div>
                   </div>
-                  
+
                   <div className="text-center">
                     <p className="text-[9px] text-foreground/20 font-bold tracking-[0.3em] uppercase">
                       © {new Date().getFullYear()} {t("home.title")}

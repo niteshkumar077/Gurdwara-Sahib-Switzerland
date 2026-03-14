@@ -116,7 +116,7 @@ export default function Footer() {
             <div className="space-y-4">
               <h3 className="text-xl font-playfair font-bold text-primary">{t("footer.links.title")}</h3>
               <ul className="space-y-2 text-sm text-white/70">
-                <li><Link href="/schedule" className="hover:text-primary transition-colors">{t("nav.schedule")}</Link></li>
+                <li><Link href="/schedule" prefetch={false} className="hover:text-primary transition-colors">{t("nav.schedule")}</Link></li>
                 <li><Link href="/sewa" className="hover:text-primary transition-colors">{t("nav.sewa")}</Link></li>
                 <li><Link href="/education" className="hover:text-primary transition-colors">{t("nav.education")}</Link></li>
                 <li><Link href="/about" className="hover:text-primary transition-colors">{t("nav.about")}</Link></li>

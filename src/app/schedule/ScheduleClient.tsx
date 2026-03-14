@@ -17,12 +17,14 @@ export default function ScheduleClient() {
           
           <div className="absolute inset-0 z-[1] opacity-40 dark:opacity-50">
             <Image
-              src="/assets/inside gurdwara granth.webp"
+              src="/assets/schedule-hero.webp"
               alt="Interior of Gurdwara Sahib"
               fill
               sizes="100vw"
               className="object-cover"
               priority
+              fetchPriority="high"
+              unoptimized
             />
           </div>
           

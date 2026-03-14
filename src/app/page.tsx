@@ -70,7 +70,7 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
             >
-               <span className="text-sm md:text-base tracking-[0.3em] uppercase text-white/80 font-light">{t("home.welcome")}</span>
+              <span className="text-sm md:text-base tracking-[0.3em] uppercase text-white/80 font-light">{t("home.welcome")}</span>
             </m.div>
 
             {/* Majestic Title - slow cinematic reveal */}
@@ -265,7 +265,7 @@ export default function Home() {
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover"
-                priority
+                loading="lazy"
               />
             </m.div>
           </div>
