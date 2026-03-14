@@ -35,16 +35,19 @@ export default function VideoSection() {
           {/* Majestic Video Frame */}
           <div className="relative p-2 md:p-4 rounded-[2rem] md:rounded-[3rem] bg-gradient-to-br from-primary/30 to-secondary/30 shadow-2xl overflow-hidden aspect-video group">
 
-            {/* YouTube Video Iframe Embed */}
-            <iframe
-              src="https://www.youtube.com/embed/mKt9ruMZgeg?si=aCguFVUlZAy3UmKp"
-              className="absolute inset-0 w-full h-full border-none z-0 rounded-[1.5rem] md:rounded-[2.5rem]"
-              allowFullScreen={true}
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerPolicy="strict-origin-when-cross-origin"
-              loading="lazy"
-              title="Gurdwara Sahib Switzerland Official Video"
-            ></iframe>
+              <m.div
+                className="absolute inset-0 w-full h-full border-none z-0 rounded-[1.5rem] md:rounded-[2.5rem]"
+              >
+                <iframe
+                  src="https://www.youtube-nocookie.com/embed/mKt9ruMZgeg?si=aCguFVUlZAy3UmKp"
+                  className="w-full h-full border-none rounded-[1.5rem] md:rounded-[2.5rem]"
+                  allowFullScreen={true}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  loading="lazy"
+                  title="Gurdwara Sahib Switzerland Official Video"
+                ></iframe>
+              </m.div>
 
             {/* Decorative Corner Overlays */}
             <div className="absolute top-8 left-8 w-12 h-12 border-t-4 border-l-4 border-primary/50 rounded-tl-2xl pointer-events-none z-20" />
