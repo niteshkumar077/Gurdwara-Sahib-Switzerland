@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     siteName: "Gurdwara Sahib Switzerland",
     images: [
       {
-        url: "/assets/hero background - front gurdwara-sahib-switzerland (1).webp",
+        url: "/assets/hero-front.webp",
         width: 1200,
         height: 630,
         alt: "Gurdwara Sahib Switzerland",
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Gurdwara Sahib Switzerland",
     description: "The spiritual home for the Sikh Sangat in Langenthal, Canton of Bern.",
-    images: ["/assets/hero background - front gurdwara-sahib-switzerland (1).webp"],
+    images: ["/assets/hero-front.webp"],
   },
   robots: {
     index: true,
@@ -53,6 +53,13 @@ export default function RootLayout({
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link 
+          rel="preload" 
+          href="/assets/hero-front.webp" 
+          as="image" 
+          type="image/webp"
+          fetchPriority="high"
+        />
       </head>
       <body className={`${inter.variable} ${playfair.variable} antialiased font-sans bg-background text-foreground transition-colors duration-300 relative`}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>

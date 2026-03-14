@@ -44,7 +44,7 @@ export default function Home() {
       <section ref={heroRef} className="relative h-screen min-h-[600px] landscape:min-h-[500px] flex items-center justify-center overflow-hidden bg-[#1a2a3a]">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/assets/hero background - front gurdwara-sahib-switzerland (1).webp"
+            src="/assets/hero-front.webp"
             alt="Majestic exterior view of Gurdwara Sahib Switzerland at sunrise"
             fill
             sizes="100vw"
