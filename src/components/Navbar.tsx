@@ -82,7 +82,7 @@ export default function Navbar() {
         aria-label="Primary Navigation"
       >
         <div className={`transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] ${navInnerStyles}`}>
-          <div className="px-4 md:px-6 lg:px-10 flex justify-between items-center">
+          <div className="px-4 md:px-6 lg:px-10 flex justify-between items-center gap-4 lg:gap-8">
             
             {/* Logo Section - Majestic Positioning */}
             <a href="/" className="flex items-center gap-2 md:gap-3 lg:gap-4 group">
@@ -109,8 +109,8 @@ export default function Navbar() {
             </a>
 
             {/* Desktop Navigation - Elite Typography */}
-            <div className="hidden md:flex items-center gap-3 lg:gap-8 xl:gap-10">
-              <div className="relative flex items-center gap-3 lg:gap-8 xl:gap-10">
+            <div className="hidden md:flex items-center gap-3 lg:gap-5 xl:gap-10">
+              <div className="relative flex items-center gap-3 lg:gap-5 xl:gap-10">
                 {navLinks.map((link) => {
                   const isActive = pathname === link.href;
                   return (
@@ -143,7 +143,7 @@ export default function Navbar() {
               </div>
 
               {/* Desktop Actions - Sophisticated Borders */}
-              <div className="flex items-center gap-1 lg:gap-4 pl-3 lg:pl-10 border-l border-foreground/10">
+              <div className="flex items-center gap-1 lg:gap-4 pl-3 lg:pl-6 xl:pl-10 border-l border-foreground/10">
                 <button
                   onClick={toggleLanguage}
                   className={`group flex items-center gap-2.5 px-4 py-2 rounded-full text-xs font-black transition-all border border-transparent hover:border-primary/20 ${
@@ -246,7 +246,7 @@ export default function Navbar() {
               </div>
 
               {/* Navigation Links - Clean Button Style */}
-              <div className="flex-1 flex flex-col gap-3 py-8 px-6 overflow-y-auto">
+              <div className="flex-1 flex flex-col gap-2 min-[600px]:gap-3 py-4 min-[600px]:py-8 px-6 overflow-y-auto">
                 <p className="text-[10px] font-black uppercase tracking-[0.3em] text-foreground/30 mb-2 ml-4">{t("nav.menu")}</p>
                 {navLinks.map((link, i) => {
                   const isActive = pathname === link.href;

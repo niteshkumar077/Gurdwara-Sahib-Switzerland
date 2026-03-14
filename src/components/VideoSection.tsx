@@ -7,7 +7,7 @@ export default function VideoSection() {
   const { t } = useLanguage();
 
   return (
-    <section className="py-24 bg-[#000814] relative overflow-hidden">
+    <section className="py-24 bg-[#000814] relative overflow-hidden" style={{ colorScheme: 'dark' }}>
       {/* Background Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[120px] z-0" />
 
@@ -34,10 +34,10 @@ export default function VideoSection() {
         >
           {/* Majestic Video Frame */}
           <div className="relative p-2 md:p-4 rounded-[2rem] md:rounded-[3rem] bg-gradient-to-br from-primary/30 to-secondary/30 shadow-2xl overflow-hidden aspect-video group">
-            
+
             {/* YouTube Video Iframe Embed */}
-            <iframe 
-              src="https://www.youtube.com/embed/mKt9ruMZgeg?si=aCguFVUlZAy3UmKp" 
+            <iframe
+              src="https://www.youtube.com/embed/mKt9ruMZgeg?si=aCguFVUlZAy3UmKp"
               className="absolute inset-0 w-full h-full border-none z-0 rounded-[1.5rem] md:rounded-[2.5rem]"
               allowFullScreen={true}
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -51,8 +51,8 @@ export default function VideoSection() {
             <div className="absolute bottom-8 right-8 w-12 h-12 border-b-4 border-r-4 border-primary/50 rounded-br-2xl pointer-events-none z-20" />
           </div>
         </m.div>
-        
-        <p className="mt-12 text-lg text-foreground/60 font-playfair italic max-w-2xl mx-auto leading-relaxed">
+
+        <p className="mt-12 text-lg font-playfair italic max-w-2xl mx-auto leading-relaxed" style={{ color: 'rgba(255, 255, 255, 0.65)' }}>
           {t("home.video.desc")}
         </p>
       </div>

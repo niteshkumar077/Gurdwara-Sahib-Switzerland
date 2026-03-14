@@ -131,7 +131,7 @@ export default function AboutClient() {
       </section>
 
       {/* Contact Section (Merged) */}
-      <section id="contact" className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-t border-primary/20">
+      <section id="contact" className="relative py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-t border-primary/20 overflow-hidden">
         <div className="text-center mb-16">
           <h2 className="text-sm uppercase tracking-[0.3em] text-primary font-bold mb-3">{t("about.contact.label")}</h2>
           <h3 className="text-3xl md:text-5xl font-playfair font-bold text-foreground">
@@ -154,7 +154,7 @@ export default function AboutClient() {
             className="w-full lg:w-1/2 space-y-10"
           >
             {/* Contact Details Card */}
-            <div className="glass-card p-10 rounded-3xl border-primary/20 shadow-xl">
+            <div className="glass-card p-6 sm:p-10 rounded-3xl border-primary/20 shadow-xl">
               <h2 className="text-3xl font-playfair font-bold text-foreground mb-8">
                 {t("about.contact.label")}
               </h2>
@@ -186,14 +186,14 @@ export default function AboutClient() {
                   </div>
                   <div>
                     <h3 className="font-bold text-lg text-foreground font-playfair tracking-wide">{t("about.contact.email")}</h3>
-                    <p className="text-foreground/70 mt-1 font-light">info@gurdwarasahib.com</p>
+                    <p className="text-foreground/70 mt-1 font-light break-all sm:break-normal">info@gurdwarasahib.com</p>
                   </div>
                 </li>
               </ul>
             </div>
 
             {/* Quick Contact Form */}
-            <div className="glass-card p-10 rounded-3xl border-primary/20 shadow-xl">
+            <div className="glass-card p-6 sm:p-10 rounded-3xl border-primary/20 shadow-xl">
               <h2 className="text-3xl font-playfair font-bold text-foreground mb-8">
                 {t("about.contact.form.title")}
               </h2>
@@ -252,15 +252,15 @@ export default function AboutClient() {
              transition={{ duration: 0.6, delay: 0.4 }}
              className="w-full lg:w-1/2 h-full"
           >
-            <div className="bg-primary/5 dark:bg-[#001224] p-10 md:p-14 rounded-3xl shadow-lg border border-primary/30 h-full text-foreground relative overflow-hidden">
+            <div className="bg-primary/5 dark:bg-[#001224] p-6 sm:p-10 md:p-14 rounded-3xl shadow-lg border border-primary/30 h-full text-foreground relative overflow-hidden">
                {/* Decorative background element */}
                <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
 
-              <div className="flex items-center gap-5 mb-10 text-primary relative z-10">
-                <div className="p-3 bg-primary/10 rounded-2xl border border-primary/20">
+              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-5 mb-10 text-primary relative z-10">
+                <div className="p-3 bg-primary/10 rounded-2xl border border-primary/20 inline-flex">
                    <Info size={36} aria-hidden="true" />
                 </div>
-                <h2 className="text-3xl md:text-4xl font-playfair font-bold text-foreground drop-shadow-sm tracking-wide">
+                <h2 className="text-3xl lg:text-3xl xl:text-4xl font-playfair font-bold text-foreground drop-shadow-sm tracking-wide">
                   {t("about.guidelines.title")}
                 </h2>
               </div>
@@ -302,14 +302,14 @@ export default function AboutClient() {
                 </li>
               </ul>
 
-              <div className="mt-14 p-8 glass-card rounded-2xl flex flex-col sm:flex-row items-center sm:justify-between border border-primary/20 relative z-10 shadow-md gap-6 sm:gap-4 text-center sm:text-right">
-                <div className="flex items-center gap-4 text-foreground shrink-0">
-                  <Watch size={32} className="text-primary" />
-                  <span className="font-bold text-xl font-playfair tracking-wide whitespace-nowrap">{t("about.hours.title")}</span>
+              <div className="mt-14 p-8 lg:p-6 xl:p-8 glass-card rounded-2xl flex flex-col sm:flex-row lg:flex-col xl:flex-row items-center lg:items-start xl:items-center sm:justify-between border border-primary/20 relative z-10 shadow-md gap-6 sm:gap-4 lg:gap-6 xl:gap-4 text-center sm:text-right lg:text-left xl:text-right">
+                <div className="flex items-center gap-4 text-foreground shrink-0 w-full sm:w-auto justify-center sm:justify-start">
+                  <Watch size={32} className="text-primary shrink-0" />
+                  <span className="font-bold text-xl font-playfair tracking-wide whitespace-normal sm:whitespace-nowrap lg:whitespace-normal xl:whitespace-nowrap text-center sm:text-left">{t("about.hours.title")}</span>
                 </div>
-                <div className="flex flex-col items-center sm:items-end">
+                <div className="flex flex-col items-center sm:items-end lg:items-start xl:items-end w-full">
                   <p className="font-medium text-foreground/80">{t("about.hours.days")}</p>
-                  <p className="text-primary font-bold text-xl tracking-wider whitespace-nowrap uppercase">5:00 AM - 8:00 PM</p>
+                  <p className="text-primary font-bold text-xl lg:text-lg xl:text-xl tracking-wider whitespace-normal sm:whitespace-nowrap uppercase text-center sm:text-right">5:00 AM - 8:00 PM</p>
                 </div>
               </div>
             </div>
@@ -319,7 +319,7 @@ export default function AboutClient() {
       </section>
 
       {/* Location & Map Section */}
-      <section id="location" className="py-24 bg-foreground/5 border-t border-primary/10">
+      <section id="location" className="relative py-24 bg-foreground/5 border-t border-primary/10 overflow-hidden">
          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col lg:flex-row gap-12 items-center">
               <m.div

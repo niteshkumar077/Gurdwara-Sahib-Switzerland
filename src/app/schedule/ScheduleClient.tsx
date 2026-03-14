@@ -9,20 +9,29 @@ export default function ScheduleClient() {
   const { t } = useLanguage();
   return (
     <div className="flex flex-col min-h-screen pt-32">
-      <section className="relative py-40 overflow-hidden bg-foreground/5 dark:bg-[#001224]">
-        {/* Background Patterns */}
-        <div className="absolute inset-0 z-0 pointer-events-none opacity-20">
-          <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary/10 via-transparent to-transparent"></div>
-          <Image
-            src="/assets/gurdwara inside darbar sahib zoomed picture in Langenthal Switzerland.webp"
-            alt="Darbar Sahib inside Gurdwara Sahib Switzerland"
-            fill
-            sizes="100vw"
-            className="object-cover opacity-10"
-            priority
-          />
+      {/* 1. Hero */}
+      <section className="relative min-h-[40vh] md:min-h-[60vh] flex items-center justify-center overflow-hidden py-12 md:py-20">
+        <div className="absolute inset-0 z-0 pointer-events-none">
+          {/* Solid background to prevent transparency seams */}
+          <div className="absolute inset-0 bg-background dark:bg-[#001224] z-0"></div>
+          
+          <div className="absolute inset-0 z-[1] opacity-40 dark:opacity-50">
+            <Image
+              src="/assets/inside gurdwara granth.webp"
+              alt="Interior of Gurdwara Sahib"
+              fill
+              sizes="100vw"
+              className="object-cover"
+              priority
+            />
+          </div>
+          
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/60 to-background z-[2]"></div>
+          {/* Bottom color sync layer - forces container edge to match page bg */}
+          <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-background to-transparent z-[1]"></div>
+          <div className="absolute bottom-0 left-0 w-full h-12 bg-background z-[3]"></div>
         </div>
-        
+
         <div className="relative z-10 max-w-5xl mx-auto px-4 text-center">
           <m.div
             initial={{ opacity: 0, y: 30 }}
@@ -39,10 +48,30 @@ export default function ScheduleClient() {
           </m.div>
         </div>
       </section>
+      {/* External Glow Bridge - Physically overlaps the seam with a wide, bright glow */}
+      <div className="relative z-30 -mt-12 h-6 w-full bg-gradient-to-r from-transparent via-white/50 dark:via-accent/5 to-transparent shadow-[0_0_80px_30px_rgba(255,255,255,0.6)] dark:shadow-none blur-[1px] pointer-events-none"></div>
+
 
       {/* 2. Visual Schedule Grid */}
-      <section className="py-24 bg-background">
+      <section className="py-24 bg-background -mt-[1px] relative z-20 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <m.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <span className="text-primary font-bold uppercase tracking-[0.2em] text-sm mb-4 block">
+              {t("schedule.showcase.label")}
+            </span>
+            <h2 className="text-3xl md:text-5xl font-playfair font-black text-foreground mb-6">
+              {t("schedule.showcase.title")}
+            </h2>
+            <p className="text-lg text-foreground/60 max-w-2xl mx-auto font-light">
+              {t("schedule.showcase.desc")}
+            </p>
+          </m.div>
+
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
             {[
               { src: "/assets/Daily Diwan Schedule  Gurdwara Sahib in english (1).webp", label: t("schedule.showcase.en") },
@@ -75,26 +104,48 @@ export default function ScheduleClient() {
         </div>
       </section>
 
-      {/* 3. CTA */}
-      <section className="relative py-24 flex items-center justify-center overflow-hidden border-t border-primary/20 bg-foreground/5">
-        <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
+
+      <section className="relative py-20 flex items-center justify-center overflow-hidden -mt-[1px] z-20">
+        {/* Full-bleed background image */}
+        <div className="absolute inset-0 z-0 pointer-events-none">
+          {/* Solid background to prevent transparency seams */}
+          <div className="absolute inset-0 bg-background z-0"></div>
+          
+          <div className="absolute inset-0 z-[1] top-[1px]">
+            <Image
+              src="/assets/gurdwara front 3.webp"
+              alt="Gurdwara Sahib Exterior"
+              fill
+              className="object-cover brightness-[0.35] opacity-70"
+            />
+          </div>
+          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/60 z-[2]" />
+          
+          {/* Top blend layer - tight clean dissolve */}
+          <div className="absolute top-0 left-0 w-full h-20 bg-gradient-to-b from-background to-transparent z-[3]"></div>
+          {/* Top color sync layer */}
+          <div className="absolute top-0 left-0 w-full h-4 bg-background z-[4]"></div>
+        </div>
+        {/* Text directly on image */}
+        <div className="relative z-10 max-w-3xl mx-auto px-4 text-center">
           <m.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="glass-card p-12 md:p-20 rounded-[4rem] border-primary/30 shadow-[0_30px_100px_rgba(0,0,0,0.1)] relative"
+            transition={{ duration: 0.8 }}
           >
-            <h2 className="text-3xl md:text-5xl font-playfair font-black text-foreground mb-10 leading-tight">
+            <h2 className="text-4xl md:text-6xl font-playfair font-black text-white mb-6 leading-[1.1] tracking-tighter drop-shadow-2xl">
               {t("schedule.cta.title")}
             </h2>
-            <div className="flex flex-wrap justify-center gap-6">
-              <Link 
-                href="/about#contact" 
-                className="px-12 py-5 bg-primary hover:bg-secondary text-[#001224] font-black text-lg rounded-2xl transition-all shadow-xl shadow-primary/20 hover:shadow-primary/40 hover:-translate-y-1 block sm:inline-block"
-              >
-                {t("schedule.cta.btn")}
-              </Link>
-            </div>
+            <p className="text-xl text-white/80 mb-12 max-w-xl mx-auto font-light leading-relaxed drop-shadow">
+              {t("schedule.cta.desc")}
+            </p>
+            <Link
+              href="/about#contact"
+              className="px-12 py-4 bg-primary hover:bg-secondary text-[#001224] font-black text-lg rounded-2xl transition-all shadow-[0_20px_50px_rgba(234,179,8,0.3)] hover:shadow-[0_20px_60px_rgba(234,179,8,0.5)] hover:scale-105 active:scale-95 inline-block"
+            >
+              {t("schedule.cta.btn")}
+            </Link>
           </m.div>
         </div>
       </section>

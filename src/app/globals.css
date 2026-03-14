@@ -70,3 +70,8 @@ html {
     @apply bg-gradient-to-r from-[#D4AF37] to-[#FF9933] text-transparent bg-clip-text;
   }
 }
+
+/* Force white text inside the video showcase dark section - overrides body foreground inheritance */
+.text-forced-white {
+  color: rgba(255, 255, 255, 0.9) !important;
+}

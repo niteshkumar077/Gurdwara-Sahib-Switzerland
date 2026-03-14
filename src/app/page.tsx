@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import dynamic from "next/dynamic";
 import { useRef } from "react";
-import { m, useScroll, useTransform, AnimatePresence } from "framer-motion";
+import { m, AnimatePresence } from "framer-motion";
 import { useLanguage } from "@/components/LanguageProvider";
 import {
   ChevronRight,
@@ -37,31 +37,29 @@ const STATS = [
 export default function Home() {
   const { t } = useLanguage();
   const heroRef = useRef(null);
-  const { scrollYProgress } = useScroll({ target: heroRef, offset: ["start start", "end start"] });
-  const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
-  const opacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
 
   return (
     <div className="flex flex-col min-h-screen">
       {/* 1. Majestic Hero Section */}
-      <section ref={heroRef} className="relative h-screen flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 z-0 h-[100vh]">
+      <section ref={heroRef} className="relative h-screen min-h-[600px] landscape:min-h-[500px] flex items-center justify-center overflow-hidden bg-[#1a2a3a]">
+        <div className="absolute inset-0 z-0">
           <Image
             src="/assets/hero background - front gurdwara-sahib-switzerland (1).webp"
             alt="Majestic exterior view of Gurdwara Sahib Switzerland at sunrise"
             fill
             sizes="100vw"
+            quality={85}
             className="object-cover object-top"
             priority
             fetchPriority="high"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/20 to-background/40 flex items-center justify-center"></div>
         </div>
-        <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white w-full flex flex-col items-center">
+        <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white w-full flex flex-col items-center landscape:pt-32 landscape:pb-12">
           <m.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, staggerChildren: 0.08, delayChildren: 0.1 }}
+            transition={{ duration: 0.5, staggerChildren: 0.05, delayChildren: 0 }}
             style={{ willChange: "opacity" }}
             className="space-y-6 flex flex-col items-center"
           >
@@ -69,17 +67,17 @@ export default function Home() {
             <m.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
+              transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
             >
                <span className="text-sm md:text-base tracking-[0.3em] uppercase text-white/80 font-light">{t("home.welcome")}</span>
             </m.div>
 
-            {/* Majestic Title */}
+            {/* Majestic Title - renders visible immediately for LCP, animates in via scale+blur */}
             <m.h1
-              initial={{ opacity: 0, scale: 0.95, filter: "blur(10px)" }}
+              initial={{ opacity: 1, scale: 0.96, filter: "blur(8px)" }}
               animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
               transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-              style={{ willChange: "opacity, transform, filter" }}
+              style={{ willChange: "transform, filter" }}
               className="text-4xl md:text-5xl lg:text-7xl font-playfair font-black leading-tight drop-shadow-2xl gold-gradient-text tracking-widest uppercase py-2"
             >
               {t("home.title")}
@@ -89,7 +87,7 @@ export default function Home() {
             <m.p
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: 0.05, ease: [0.22, 1, 0.36, 1] }}
+              transition={{ duration: 0.3, delay: 0, ease: [0.22, 1, 0.36, 1] }}
               style={{ willChange: "opacity, transform" }}
               className="text-lg md:text-2xl font-light max-w-2xl mx-auto text-white/90 font-playfair italic px-4 mt-2"
             >
@@ -103,7 +101,7 @@ export default function Home() {
                 animate={{ opacity: 1, y: 0 }}
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.98 }}
-                transition={{ duration: 0.6, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                transition={{ duration: 0.6, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
               >
                 <Link
                   href="/about"
@@ -118,7 +116,7 @@ export default function Home() {
                 animate={{ opacity: 1, y: 0 }}
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.98 }}
-                transition={{ duration: 0.6, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                transition={{ duration: 0.6, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
                 style={{
                   willChange: "transform, opacity",
                   transformStyle: "preserve-3d",
@@ -331,7 +329,7 @@ export default function Home() {
       <DynamicVideoSection />
 
       {/* 6. Education Teaser */}
-      <section className="py-24 relative overflow-hidden bg-foreground/5 dark:bg-foreground/10 border-y border-primary/20">
+      <section className="py-16 md:py-24 relative overflow-hidden bg-foreground/5 dark:bg-foreground/10 border-y border-primary/20">
         <div className="absolute inset-0 z-0 opacity-[0.05] dark:opacity-10">
           <Image
             src="/assets/gurmat-school pic 1.webp"
@@ -343,14 +341,14 @@ export default function Home() {
           />
         </div>
         <div className="relative z-10 max-w-4xl mx-auto px-4 text-center text-foreground">
-          <BookOpen size={48} className="text-primary mx-auto mb-6" />
-          <h2 className="text-3xl md:text-5xl font-playfair font-bold mb-6">
+          <BookOpen size={40} className="md:size-[48px] text-primary mx-auto mb-4 md:mb-6" />
+          <h2 className="text-3xl md:text-5xl font-playfair font-bold mb-4 md:mb-6">
             {t("home.edu.title")}
           </h2>
-          <p className="text-lg md:text-xl text-foreground/80 font-light mb-10 leading-relaxed">
+          <p className="text-lg md:text-xl text-foreground/80 font-light mb-8 md:mb-10 leading-relaxed">
             {t("home.edu.desc")}
           </p>
-          <Link href="/education" className="inline-block px-10 py-4 bg-primary text-white dark:text-[#001224] font-bold text-lg rounded-full hover:bg-secondary transition-colors shadow-md hover:shadow-lg">
+          <Link href="/education" className="inline-block px-6 py-3 md:px-10 md:py-4 bg-primary text-white dark:text-[#001224] font-bold text-base md:text-lg rounded-full hover:bg-secondary transition-colors shadow-md hover:shadow-lg">
             {t("home.edu.btn")}
           </Link>
         </div>
