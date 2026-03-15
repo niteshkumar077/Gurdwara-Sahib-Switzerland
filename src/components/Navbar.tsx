@@ -86,6 +86,7 @@ export default function Navbar() {
 
             {/* Logo Section - Majestic Positioning */}
             <a href="/" className="flex items-center gap-2 md:gap-3 lg:gap-4 group">
+              {/* ORIGINAL LOGO CODE - Commented out for easy revert
               <div className="relative w-12 h-12 md:w-10 md:h-10 lg:w-16 lg:h-16 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3">
                 <Image
                   src="/assets/gurdwara sahib switzerland logo.webp"
@@ -96,6 +97,24 @@ export default function Navbar() {
                   priority
                   fetchPriority="high"
                   style={{ willChange: "filter, transform" }}
+                />
+              </div>
+              */}
+
+              {/* FIXED LOGO CODE: Explicit aspect ratio, flexShrink: 0, and strict Image sizes to prevent FOUC */}
+              <div 
+                className="relative w-12 h-12 md:w-10 md:h-10 lg:w-16 lg:h-16 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3"
+                style={{ aspectRatio: '1 / 1', flexShrink: 0 }}
+              >
+                <Image
+                  src="/assets/gurdwara sahib switzerland logo.webp"
+                  alt="Gurdwara Sahib Switzerland Logo"
+                  fill
+                  sizes="(max-width: 768px) 56px, 64px"
+                  className={`object-contain transition-[filter] duration-700 ${showWhiteText ? "drop-shadow-[0_0_12px_rgba(255,255,255,0.7)]" : "drop-shadow-lg"}`}
+                  priority
+                  fetchPriority="high"
+                  style={{ width: '100%', height: 'auto', objectFit: 'contain', willChange: "filter, transform" }}
                 />
               </div>
               <div className="flex flex-col font-playfair tracking-tight">
